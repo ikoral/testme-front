@@ -2,22 +2,19 @@
   <div id="app">
     <Header />
     <!-- <Home /> -->
-    <Login />
+    <!-- <Login /> -->
+    <router-view />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
-// import Home from "./components/Home";
-import Login from "./components/Login";
 
 export default {
   name: "App",
 
   components: {
     Header,
-    // Home,
-    Login,
   },
 };
 </script>
@@ -26,5 +23,10 @@ export default {
 html body {
   background: rgb(243, 243, 243);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
 }
 </style>

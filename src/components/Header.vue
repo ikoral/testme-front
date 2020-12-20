@@ -1,7 +1,9 @@
 <template>
-  <nav class="flex items-center justify-between flex-wrap bg-blue-800 p-6">
+  <nav
+    class="flex items-center justify-between flex-wrap p-6 bg-gradient-to-r from-blue-900 to-pink-500"
+  >
     <div class="flex items-center flex-no-shrink text-gray-200 mr-8">
-      <span class="font-semibold text-xl tracking-tight">Chinook | TestMe</span>
+      <span class="font-semibold text-xl tracking-tight">Chinook Media</span>
     </div>
     <div class="block sm:hidden">
       <button
@@ -45,7 +47,7 @@
       <div>
         <a
           href="#"
-          class="no-underline inline-block text-sm px-4 py-2 mr-4 leading-none border rounded text-white border-white hover:border-transparent hover:text-pink-500 hover:bg-white mt-4 sm:mt-0"
+          class="no-underline inline-block text-sm px-4 py-2 mr-4 leading-none border rounded text-white border-white hover:text-white hover:bg-indigo-600 mt-4 sm:mt-0"
           >Sign Up</a
         >
         <a
