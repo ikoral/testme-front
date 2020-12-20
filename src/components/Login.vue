@@ -1,6 +1,6 @@
 <template>
   <form
-    @submit="handleSubmit"
+    @submit.prevent="handleSubmit"
     id="form-sign-in"
     class="flex justify-center content-center"
   >
@@ -20,6 +20,7 @@
             type="email"
             placeholder="Email"
             class="px-8 w-full border rounded px-3 py-1 text-gray-700"
+            v-model="email"
           />
         </div>
 
@@ -31,6 +32,7 @@
             type="password"
             placeholder="password"
             class="px-8 w-full border rounded px-3 py-1 text-gray-700"
+            v-model="password"
           />
         </div>
 
@@ -55,11 +57,26 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Login",
+
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+
   methods: {
-    handleSubmit() {
-      console.log("submitted");
+    async handleSubmit() {
+      const response = await axios.post("/api/users/login", {
+        email: this.email,
+        password: this.password,
+      });
+
+      console.log(response);
     },
   },
 };
