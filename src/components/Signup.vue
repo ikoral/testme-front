@@ -42,6 +42,7 @@
           ></i>
           <input
             type="email"
+            autocomplete="email"
             placeholder="Email"
             class="px-8 w-full border rounded px-3 py-1 text-gray-700"
             v-model="email"
@@ -54,6 +55,7 @@
           ></i>
           <input
             type="password"
+            autocomplete="new-password"
             placeholder="password"
             class="px-8 w-full border rounded px-3 py-1 text-gray-700"
             v-model="password"
@@ -93,18 +95,34 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Signup",
   methods: {
+    // async handleSubmit() {
     handleSubmit() {
       const data = {
-        firstName: this.firstName,
-        lastName: this.lastName,
+        first_name: this.firstName,
+        last_name: this.lastName,
         email: this.email,
         password: this.password,
-        passwordConfirm: this.passwordConfirm,
       };
-      console.log(data);
+
+      axios
+        .post("/api/users/register", data)
+        .then((res) => {
+          console.log(res);
+          this.$router.push("/login");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      // try {
+      //   const res = await axios.post("/api/users/register", data);
+      //   console.log(res);
+      // } catch (err) {
+      //   console.log(err.message);
+      // }
     },
   },
 

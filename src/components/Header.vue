@@ -35,13 +35,13 @@
           href="#responsive-header"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300 hover:font-bold mr-4"
         >
-          ToDo
+          PokeLog
         </a>
         <a
           href="#responsive-header"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300"
         >
-          PokeLog
+          ToDo
         </a>
       </div>
       <div>
