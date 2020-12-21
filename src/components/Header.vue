@@ -3,7 +3,13 @@
     class="flex items-center justify-between flex-wrap p-6 bg-gradient-to-r from-blue-900 to-pink-500"
   >
     <div class="flex items-center flex-no-shrink text-gray-200 mr-8">
-      <span class="font-semibold text-xl tracking-tight">Chinook Media</span>
+      <span class="font-semibold text-xl tracking-tight">
+        <a
+          href="/"
+          class="no-underline inline-block leading-none text-pink-100 hover:text-white"
+          >Chinook Media</a
+        ></span
+      >
     </div>
     <div class="block sm:hidden">
       <button
@@ -25,12 +31,12 @@
       class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
     >
       <div class="text-sm sm:flex-grow">
-        <a
-          href="#responsive-header"
+        <router-link
+          to="/"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300 mr-4"
         >
           Home
-        </a>
+        </router-link>
         <a
           href="#responsive-header"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300 hover:font-bold mr-4"
@@ -44,23 +50,33 @@
           ToDo
         </a>
       </div>
-      <div>
-        <a
-          href="#"
+      <div v-if="!user">
+        <router-link
+          to="/register"
           class="no-underline inline-block text-sm px-4 py-2 mr-4 leading-none border rounded text-white border-white hover:text-white hover:bg-indigo-600 mt-4 sm:mt-0"
-          >Sign Up</a
+          >Sign Up</router-link
         >
-        <a
-          href="#"
+        <router-link
+          to="/login"
           class="no-underline inline-block text-sm px-6 py-2 leading-none border border-white rounded text-pink-500 bg-white hover:text-white hover:bg-indigo-600 mt-4 sm:mt-0"
-          >Login</a
+          >Login</router-link
         >
+      </div>
+      <div v-if="user">
+        <a
+          href="javascript:void(0)"
+          class="no-underline inline-block text-sm px-6 py-2 leading-none border border-white rounded text-pink-500 bg-white hover:text-white hover:bg-indigo-600 mt-4 sm:mt-0"
+          @click="handleLogout"
+          >Logout
+        </a>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Header",
 
@@ -69,10 +85,20 @@ export default {
       open: false,
     };
   },
+
   methods: {
     toggle() {
       this.open = !this.open;
     },
+    handleLogout() {
+      localStorage.removeItem("token");
+      this.$store.dispatch("user", null);
+      // this.$router.push("/");
+    },
+  },
+
+  computed: {
+    ...mapGetters(["user"]),
   },
 };
 </script>

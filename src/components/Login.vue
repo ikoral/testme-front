@@ -8,6 +8,10 @@
       class="absolute w-4/5 md:w-3/5 xl:w-2/4 2xl:w-1/3 bg-white rounded-lg mt-24"
     >
       <div class="flex justify-center">
+        <div class="flex justify-center">
+          <p v-if="error" role="alert">{{ error }}</p>
+          <h3>Login</h3>
+        </div>
         <img class="w-20 h-20 mt-6" src="../assets/chinook.png" />
       </div>
 
@@ -37,10 +41,12 @@
         </div>
 
         <div class="mt-8 flex justify-between">
-          <!-- <div class="flex items-center">
-            <input type="checkbox" class="w-4 h-4 mr-2" />
-            <span class="text-xs text-gray-700">Remember Me</span>
-          </div> -->
+          <div class="flex items-center">
+            <!-- <input type="checkbox" class="w-4 h-4 mr-2" /> -->
+            <span class="text-xs text-gray-700 hover:text-pink-500"
+              ><router-link to="/forgot">Forgot Password?</router-link></span
+            >
+          </div>
           <div>
             <button
               id="btn-sign-in"
@@ -66,17 +72,24 @@ export default {
     return {
       email: "",
       password: "",
+      error: "",
     };
   },
 
   methods: {
     async handleSubmit() {
-      const response = await axios.post("/api/users/login", {
-        email: this.email,
-        password: this.password,
-      });
+      try {
+        const response = await axios.post("/api/users/login", {
+          email: this.email,
+          password: this.password,
+        });
 
-      console.log(response);
+        localStorage.setItem("token", response.data.token);
+        this.$store.dispatch("user", response.data.user);
+        this.$router.push("/");
+      } catch (e) {
+        this.error = "Invalid username or password!";
+      }
     },
   },
 };

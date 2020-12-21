@@ -1,12 +1,20 @@
 <template>
   <div class="wrapper">
+    <h3 v-if="user">Hi, {{ user.firstName }} {{ user.lastName }}</h3>
+    <h3 v-else>Hello, you are not logged in.</h3>
     <div class="inner my-10 mx-4">Welcom to Chin00k Media Enterprise</div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Home",
+
+  computed: {
+    ...mapGetters(["user"]),
+  },
 };
 </script>
 

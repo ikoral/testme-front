@@ -9,12 +9,29 @@
 
 <script>
 import Header from "./components/Header";
+import axios from "axios";
 
 export default {
   name: "App",
 
   components: {
     Header,
+  },
+
+  // data() {
+  //   return {
+  //     user: null,
+  //   };
+  // },
+
+  async created() {
+    const response = await axios.get("/api/users/user");
+
+    this.$store.dispatch("user", response.data.user);
+
+    // this.user = response.data.user;
+
+    // console.log("response data", response.data.user);
   },
 };
 </script>
