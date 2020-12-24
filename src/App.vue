@@ -26,7 +26,7 @@ export default {
 
   async created() {
     try {
-      const response = await axios.get("/api/users/user");
+      const response = await axios.get("/users/user");
       this.$store.dispatch("user", response.data.user);
     } catch (error) {
       this.$store.dispatch("user", null);

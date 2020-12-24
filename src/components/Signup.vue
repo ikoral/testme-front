@@ -109,7 +109,7 @@ export default {
       };
 
       axios
-        .post("/api/users/register", data)
+        .post("/users/register", data)
         .then((res) => {
           console.log(res);
           this.$router.push("/login");

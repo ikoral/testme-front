@@ -84,7 +84,7 @@ export default {
     async handleSubmit() {
       // TODO: check required fields
       try {
-        const response = await axios.post("/api/users/login", {
+        const response = await axios.post("/users/login", {
           email: this.email,
           password: this.password,
         });

@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const response = await axios.post("/api/users/forgot", {
+      const response = await axios.post("/users/forgot", {
         email: this.email,
       });
       console.log(response);

@@ -66,7 +66,7 @@ export default {
   methods: {
     async handleSubmit() {
       try {
-        const response = await axios.post("/api/users/reset", {
+        const response = await axios.post("/users/reset", {
           password: this.password,
           password_confirm: this.passwordConfirm,
           token: this.$route.params.token,
