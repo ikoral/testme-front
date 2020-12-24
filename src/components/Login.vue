@@ -7,12 +7,16 @@
     <div
       class="absolute w-4/5 md:w-3/5 xl:w-2/4 2xl:w-1/3 bg-white rounded-lg mt-24"
     >
-      <div class="flex justify-center">
+      <div class="flex flex-col justify-center">
         <div class="flex justify-center">
-          <p v-if="error" role="alert">{{ error }}</p>
+          <p v-if="error" role="alert" class="mt-2 alert">{{ error }}</p>
+        </div>
+        <div class="flex justify-center mt-2">
           <h3>Login</h3>
         </div>
-        <img class="w-20 h-20 mt-6" src="../assets/chinook.png" />
+        <div class="flex justify-center">
+          <img class="w-20 h-20 mt-6" src="../assets/chinook.png" />
+        </div>
       </div>
 
       <div class="px-12 py-10">
@@ -78,6 +82,7 @@ export default {
 
   methods: {
     async handleSubmit() {
+      // TODO: check required fields
       try {
         const response = await axios.post("/api/users/login", {
           email: this.email,

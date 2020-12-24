@@ -25,9 +25,12 @@ export default {
   // },
 
   async created() {
-    const response = await axios.get("/api/users/user");
-
-    this.$store.dispatch("user", response.data.user);
+    try {
+      const response = await axios.get("/api/users/user");
+      this.$store.dispatch("user", response.data.user);
+    } catch (error) {
+      this.$store.dispatch("user", null);
+    }
 
     // this.user = response.data.user;
 

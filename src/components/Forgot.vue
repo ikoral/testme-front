@@ -27,7 +27,7 @@
         <div class="mt-8 flex justify-between">
           <div>
             <button
-              id="btn-sign-in"
+              id="btn-forgot"
               type="text"
               class="bg-blue-500 border border-blue-500 text-xs text-gray-100 rounded px-4 py-2 hover:text-pink-500 hover:bg-white"
             >
