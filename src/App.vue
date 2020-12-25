@@ -1,14 +1,16 @@
 <template>
-  <div id="app">
+  <div id="app" class="flex flex-col min-h-screen">
     <Header />
     <!-- <Home /> -->
     <!-- <Login /> -->
-    <router-view />
+    <router-view class="flex-1 overflow-y-auto" />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import axios from "axios";
 
 export default {
@@ -16,6 +18,7 @@ export default {
 
   components: {
     Header,
+    Footer,
   },
 
   // data() {
@@ -41,7 +44,7 @@ export default {
 
 <style>
 html body {
-  background: rgb(243, 243, 243);
+  background: #fff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 

@@ -1,8 +1,18 @@
 <template>
   <div class="wrapper">
-    <h3 v-if="user">Hi, {{ user.firstName }} {{ user.lastName }}</h3>
-    <h3 v-else>Hello, you are not logged in.</h3>
-    <div class="inner my-10 mx-4">Welcom to Chin00k Media Enterprise</div>
+    <h3 class="mt-10" v-if="user">
+      Hi, {{ user.firstName }} {{ user.lastName }}
+    </h3>
+    <h3 class="mt-10" v-else>Hello, you are not logged in.</h3>
+    <div class="flex inner my-10 mx-4 shadow-md border justify-center">
+      <p class="text-lg">Welcome to Chin00k Media Enterprise</p>
+    </div>
+    <div class="inner my-2 mx-4 flex justify-center shadow-md border">
+      <img
+        src="../assets/christmas.jpg"
+        class="w-5/6 h-1/5 lg:w-3/5 lg:h-3/5"
+      />
+    </div>
   </div>
 </template>
 
@@ -32,8 +42,7 @@ export default {
 
 .inner {
   width: 90%;
-  background: #fff9de;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  background: #fffcfd;
   padding: 40px 25px 40px 25px;
   border-radius: 15px;
   transition: all 0.3s;

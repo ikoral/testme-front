@@ -35,7 +35,7 @@
           to="/"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300 mr-4"
         >
-          Home
+          <span @click="open = false">Home</span>
         </router-link>
         <a
           href="#responsive-header"
@@ -44,6 +44,7 @@
           PokeLog
         </a>
         <a
+          :class="classTodo"
           href="#responsive-header"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300"
         >
@@ -54,12 +55,12 @@
         <router-link
           to="/register"
           class="no-underline inline-block text-sm px-4 py-2 mr-4 leading-none border rounded text-white border-white hover:text-white hover:bg-indigo-600 mt-4 sm:mt-0"
-          >Sign Up</router-link
+          ><span @click="open = false">Sign Up</span></router-link
         >
         <router-link
           to="/login"
           class="no-underline inline-block text-sm px-6 py-2 leading-none border border-white rounded text-pink-500 bg-white hover:text-white hover:bg-indigo-600 mt-4 sm:mt-0"
-          >Login</router-link
+          ><span @click="open = false">Login</span></router-link
         >
       </div>
       <div v-if="user">
@@ -99,6 +100,14 @@ export default {
 
   computed: {
     ...mapGetters(["user"]),
+
+    classTodo: function () {
+      if (!this.user) {
+        return "opacity-50";
+      } else {
+        return "opacity-100";
+      }
+    },
   },
 };
 </script>
