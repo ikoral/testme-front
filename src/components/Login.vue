@@ -90,7 +90,6 @@ export default {
 
   methods: {
     async handleSubmit() {
-      // TODO: check required fields
       try {
         if (this.email == "" || this.password == "") {
           return (this.error = "email and password are required!");
