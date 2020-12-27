@@ -43,13 +43,14 @@
         >
           PokeLog
         </a>
-        <a
+        <router-link
+          to="/todo"
           :class="classTodo"
           href="#responsive-header"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300"
         >
-          ToDo
-        </a>
+          <span @click="open = false">ToDo</span>
+        </router-link>
       </div>
       <div v-if="!user">
         <router-link
