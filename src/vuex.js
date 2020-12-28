@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 const state = {
   user: null,
-  error: false,
+  todos: null,
 };
 
 const store = new Vuex.Store({
@@ -14,24 +14,24 @@ const store = new Vuex.Store({
     user: (state) => {
       return state.user;
     },
-    error: (state) => {
-      return state.error;
+    todos: (state) => {
+      return state.todos;
     },
   },
   actions: {
     user(context, user) {
       context.commit("user", user);
     },
-    error(context, error) {
-      context.commit("error", error);
+    todos(context, todos) {
+      context.commit("todos", todos);
     },
   },
   mutations: {
     user(state, user) {
       state.user = user;
     },
-    error(state, error) {
-      state.error = error;
+    todos(state, todos) {
+      state.todos = todos;
     },
   },
 });
