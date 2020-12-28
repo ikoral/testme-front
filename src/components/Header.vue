@@ -44,9 +44,10 @@
           PokeLog
         </a>
         <a
+          href="javascript:void(0)"
           :class="classTodo"
-          href="#responsive-header"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300"
+          @click="handleTodo"
         >
           ToDo
         </a>
@@ -77,6 +78,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import axios from "axios";
 
 export default {
   name: "Header",
@@ -92,14 +94,30 @@ export default {
       this.open = !this.open;
     },
     handleLogout() {
+      this.open = false;
       localStorage.removeItem("token");
       this.$store.dispatch("user", null);
+      this.$store.dispatch("todos", null);
       // this.$router.push("/");
+    },
+    handleTodo() {
+      this.open = false;
+      axios.defaults.headers.common["Authorization"] =
+        "Bearer " + localStorage.getItem("token");
+      axios
+        .get("/todos")
+        .then((res) => {
+          //this.todos = res.data.todos;
+          this.$store.dispatch("todos", res.data.todos);
+        })
+        .catch((err) => console.log(err));
+      this.$router.push("/todo");
     },
   },
 
   computed: {
     ...mapGetters(["user"]),
+    ...mapGetters(["todos"]),
 
     classTodo: function () {
       if (!this.user) {

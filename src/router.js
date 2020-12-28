@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Forgot from "./components/Forgot";
 import Reset from "./components/Reset";
+import Todo from "./components/Todo";
 
 Vue.use(Router);
 
@@ -17,5 +18,6 @@ export default new Router({
     { path: "/register", component: Signup },
     { path: "/forgot", component: Forgot },
     { path: "/reset/:token", component: Reset },
+    { path: "/todo", component: Todo },
   ],
 });
