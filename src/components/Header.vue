@@ -111,7 +111,7 @@ export default {
           this.$store.dispatch("todos", res.data.todos);
         })
         .catch((err) => console.log(err));
-      this.$router.push("/todo");
+      if (this.$route.path !== "/todo") this.$router.push("/todo");
     },
   },
 

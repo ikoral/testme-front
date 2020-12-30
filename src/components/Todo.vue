@@ -70,21 +70,18 @@ export default {
       this.getTodos();
     },
 
-    // updateStatus(newStatus) {
-    //   const { status, Id } = newStatus;
-    //   const todoStatus = status ? "1" : "0";
-    //   //const currentStatus = { todoStatus: value };
-    //   // console.log(todoStatus);
-    //   axios
-    //     .patch(`/todos/${Id}`, {
-    //       todoStatus,
-    //     })
-    //     .then((res) => {
-    //       // this.todos = this.getTodos();
-    //       console.log(res.data); //avoid eslint never used variable
-    //     })
-    //     .catch((err) => console.log(err));
-    // },
+    async updateStatus(newStatus) {
+      const { status, Id } = newStatus;
+      const todoStatus = status ? "1" : "0";
+      //const currentStatus = { todoStatus: value };
+      // console.log(todoStatus);
+      await axios
+        .patch(`/todos/${Id}`, {
+          todoStatus,
+        })
+        .catch((err) => console.log(err));
+      this.getTodos();
+    },
 
     getTodos() {
       axios
