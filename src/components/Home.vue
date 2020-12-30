@@ -10,7 +10,7 @@
     <div class="inner my-2 mx-4 flex justify-center shadow-md border">
       <img
         src="../assets/christmas.jpg"
-        class="w-5/6 h-1/5 lg:w-3/5 lg:h-3/5"
+        class="w-5/6 h-2/5 lg:w-3/5 lg:h-3/5"
       />
     </div>
   </div>

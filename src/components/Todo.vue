@@ -55,16 +55,10 @@ export default {
     ...mapGetters(["todos"]),
   },
   methods: {
-    // deleteTodo(id) {
-    //   axios
-    //     .delete(`todos/${id}`)
-
-    //     .then((res) => {
-    //       this.todos = this.todos.filter((todo) => todo.id !== id);
-    //       // this.todos = this.getTodos();
-    //       console.log(res.data); //avoid eslint never used variable
-    //     });
-    // },
+    async deleteTodo(id) {
+      await axios.delete(`/todos/${id}`).catch((err) => console.log(err));
+      this.getTodos();
+    },
 
     async addTodo(newTodo) {
       //this.todos = [...this.todos, newTodo];
