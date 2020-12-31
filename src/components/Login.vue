@@ -6,10 +6,10 @@
       class="flex justify-center content-center"
     >
       <div
-        class="relative w-full md:w-3/5 xl:w-2/4 2xl:w-1/3 bg-white rounded-lg mt-10 lg:border md:shadow-md"
+        class="relative w-full md:w-3/5 xl:w-2/4 2xl:w-1/3 bg-white rounded-lg mt-6 lg:border md:shadow-md"
       >
         <div class="flex flex-col justify-center">
-          <div class="h-10 my-2">
+          <div class="h-8 my-2">
             <Error v-show="error" :error="error" @close-error="error = ''" />
           </div>
 
