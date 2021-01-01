@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="footer bg-gradient-to-r from-pink-900 to-gray-600 pt-1 mt-10 w-full flex-none"
+    class="footer bg-gradient-to-r from-pink-900 to-gray-600 pt-1 w-full flex-none"
   >
     <div class="container mx-auto px-6">
       <div class="sm:flex sm:mt-4">
