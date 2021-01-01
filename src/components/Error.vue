@@ -6,7 +6,7 @@
       <i class="fa fa-bell" />
     </span>
     <span class="inline-block align-middle mr-8">
-      <b class="capitalize">Ooops!</b> {{ error }}!
+      <b class="capitalize">Ooops!</b> {{ error }}
     </span>
     <button
       class="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-3 mr-6 outline-none focus:outline-none"
