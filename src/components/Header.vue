@@ -37,12 +37,12 @@
         >
           <span @click="open = false">Home</span>
         </router-link>
-        <a
-          href="#responsive-header"
-          class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300 hover:font-bold mr-4"
+        <router-link
+          to="/pokelog"
+          class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300 mr-4"
         >
-          PokeLog
-        </a>
+          <span @click="open = false">PokeLog</span>
+        </router-link>
         <a
           href="javascript:void(0)"
           :class="classTodo"
@@ -111,7 +111,7 @@ export default {
           this.$store.dispatch("todos", res.data.todos);
         })
         .catch((err) => console.log(err));
-      this.$router.push("/todo");
+      if (this.$route.path !== "/todo") this.$router.push("/todo");
     },
   },
 
