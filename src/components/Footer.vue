@@ -10,13 +10,17 @@
           <div class="flex flex-col mt-4">
             <span class="font-bold text-white uppercase mb-1">QUICK LINKS</span>
             <span class="my-2"
-              ><a href="#" class="text-pink-50 text-md hover:text-pink-200"
-                >link 1</a
+              ><a
+                href="https://ttl.be"
+                class="text-pink-50 text-md hover:text-pink-200"
+                >ttl.be</a
               ></span
             >
             <span class="my-2"
-              ><a href="#" class="text-pink-50 text-md hover:text-pink-200"
-                >link 2</a
+              ><a
+                href="https://ttl.academy"
+                class="text-pink-50 text-md hover:text-pink-200"
+                >ttl.academy</a
               ></span
             >
           </div>

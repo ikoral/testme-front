@@ -4,26 +4,65 @@
       Hi, {{ user.firstName }} {{ user.lastName }}
     </h3>
     <h3 class="mt-10" v-else>Hello, you are not logged in.</h3>
-    <div class="flex inner my-10 mx-4 shadow-md border justify-center">
+    <div class="flex inner my-6 mx-4 shadow-md border justify-center">
       <p class="text-lg">Welcome to Chin00k Media Enterprise</p>
     </div>
-    <div class="inner my-2 mx-4 flex justify-center shadow-md border">
-      <img
-        src="../assets/christmas.jpg"
-        class="w-5/6 h-2/5 lg:w-3/5 lg:h-3/5"
-      />
+    <div class="my-1 flex justify-center shadow-md border">
+      <img src="../assets/media_land02.jpg" class="w-full" />
     </div>
+    <div class="mt-24 my-16 flex flex-col justify-center items-center">
+      <div>
+        <a
+          href="#"
+          class="uppercase text-blue-700 font-bold"
+          @click.prevent="setIframe"
+          >Play Has No Limits</a
+        >
+      </div>
+      <h3 class="mt-2">Introducing Chinook Enterprise</h3>
+      <div>
+        <p class="my-10 text-lg">
+          Unleash new entertainment possibilities that you never anticipated
+        </p>
+      </div>
+    </div>
+
+    <div class="my-1 flex justify-center shadow-md border">
+      <img src="../assets/land03.png" class="w-full" />
+    </div>
+    <IframePlay v-if="showIframe" @closeIframe="closeIframe" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import IframePlay from "./iframe/IframePlay";
 
 export default {
   name: "Home",
 
+  data: () => {
+    return {
+      showIframe: false,
+    };
+  },
+
   computed: {
     ...mapGetters(["user"]),
+  },
+
+  methods: {
+    setIframe() {
+      // this.pokemonUrl = url;
+      this.showIframe = true;
+    },
+    closeIframe() {
+      this.showIframe = false;
+    },
+  },
+
+  components: {
+    IframePlay,
   },
 };
 </script>

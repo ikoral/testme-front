@@ -104,13 +104,13 @@ export default {
       this.open = false;
       axios.defaults.headers.common["Authorization"] =
         "Bearer " + localStorage.getItem("token");
-      axios
-        .get("/todos")
-        .then((res) => {
-          //this.todos = res.data.todos;
-          this.$store.dispatch("todos", res.data.todos);
-        })
-        .catch((err) => console.log(err));
+      // axios
+      //   .get("/todos")
+      //   .then((res) => {
+      //     //this.todos = res.data.todos;
+      //     this.$store.dispatch("todos", res.data.todos);
+      //   })
+      //   .catch((err) => console.log(err));
       if (this.$route.path !== "/todo") this.$router.push("/todo");
     },
   },

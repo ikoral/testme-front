@@ -2,11 +2,11 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import Home from "./components/Home";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import Forgot from "./components/Forgot";
-import Reset from "./components/Reset";
-import Todo from "./components/Todo";
+import Login from "./components/login/Login";
+import Signup from "./components/login/Signup";
+import Forgot from "./components/login/Forgot";
+import Reset from "./components/login/Reset";
+import Todo from "./components/todos/Todo";
 import Pokemon from "./components/pokemon/Pokemon";
 
 Vue.use(Router);
