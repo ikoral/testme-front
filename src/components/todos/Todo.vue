@@ -12,8 +12,11 @@
       <Todos
         :class="classVisibility"
         :todos="todos"
+        :todosStatus="todosStatus"
         v-on:del-todo="deleteTodo"
         v-on:update-status="updateStatus"
+        v-on:mark-alldone="markAlldone"
+        v-on:delete-alltodos="deleteAllTodos"
       />
     </div>
     <div v-else class="flex justify-center content-center">
@@ -40,17 +43,17 @@ import AddTodo from "./AddTodo";
 import axios from "axios";
 
 export default {
-  name: "Home",
+  name: "Todo",
   components: {
     Todos,
     AddTodo,
   },
 
-  // data() {
-  //   return {
-  //     todos: [],
-  //   };
-  // },
+  data() {
+    return {
+      todosStatus: false,
+    };
+  },
   computed: {
     ...mapGetters(["user"]),
     ...mapGetters(["todos"]),
@@ -93,12 +96,41 @@ export default {
       this.getTodos();
     },
 
+    async markAlldone(status) {
+      const allStatus = status ? "1" : "0";
+      await axios
+        .put(`/todos/all`, {
+          allStatus,
+        })
+        .catch((err) => console.log(err));
+      this.getTodos();
+    },
+
+    async deleteAllTodos() {
+      await axios.delete("/todos/del/all").catch((err) => console.log(err));
+      this.getTodos();
+    },
+
     getTodos() {
       axios
         .get("/todos")
         .then((res) => {
           //this.todos = res.data.todos;
           this.$store.dispatch("todos", res.data.todos);
+
+          if (res.data.todos && res.data.todos.length > 0) {
+            const unmarkedTodos = [];
+            res.data.todos.forEach(function (todo) {
+              if (!todo.status) {
+                unmarkedTodos.push(todo.id);
+              }
+            });
+            unmarkedTodos.length > 0
+              ? (this.todosStatus = false)
+              : (this.todosStatus = true);
+          } else {
+            this.todosStatus = false;
+          }
         })
         .catch((err) => console.log(err));
     },

@@ -5,6 +5,7 @@
     <div class="flex items-center flex-no-shrink text-gray-200 mr-8">
       <span class="font-semibold text-xl tracking-tight">
         <a
+          id="linkMainLogo"
           href="/"
           class="no-underline inline-block leading-none text-pink-100 hover:text-white"
           >Chinook Media</a
@@ -32,12 +33,14 @@
     >
       <div class="text-sm sm:flex-grow">
         <router-link
+          id="linkHome"
           to="/"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300 mr-4"
         >
           <span @click="open = false">Home</span>
         </router-link>
         <router-link
+          id="linkPokelog"
           to="/pokelog"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300 mr-4"
         >
@@ -48,17 +51,20 @@
           :class="classTodo"
           class="no-underline block mt-4 sm:inline-block sm:mt-0 text-pink-100 hover:text-blue-300"
           @click="handleTodo"
+          id="linkTodo"
         >
           ToDo
         </a>
       </div>
       <div v-if="!user">
         <router-link
+          id="linkSignUp"
           to="/register"
           class="no-underline inline-block text-sm px-4 py-2 mr-4 leading-none border rounded text-white border-white hover:text-white hover:bg-indigo-600 mt-4 sm:mt-0"
           ><span @click="open = false">Sign Up</span></router-link
         >
         <router-link
+          id="linkLogin"
           to="/login"
           class="no-underline inline-block text-sm px-6 py-2 leading-none border border-white rounded text-pink-500 bg-white hover:text-white hover:bg-indigo-600 mt-4 sm:mt-0"
           ><span @click="open = false">Login</span></router-link
@@ -66,6 +72,7 @@
       </div>
       <div v-if="user">
         <a
+          id="linkLogout"
           href="javascript:void(0)"
           class="no-underline inline-block text-sm px-6 py-2 leading-none border border-white rounded text-pink-500 bg-white hover:text-white hover:bg-indigo-600 mt-4 sm:mt-0"
           @click="handleLogout"

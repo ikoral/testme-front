@@ -28,7 +28,7 @@
     </div>
 
     <div class="my-1 flex justify-center shadow-md border">
-      <img src="../assets/land03.png" class="w-full" />
+      <img src="../assets/land03.jpg" class="w-full" />
     </div>
     <IframePlay v-if="showIframe" @closeIframe="closeIframe" />
   </div>

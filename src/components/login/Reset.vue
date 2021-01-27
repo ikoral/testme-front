@@ -90,6 +90,13 @@ export default {
         if (this.passwordConfirm !== this.password) {
           return (this.error = "passwords should match!");
         }
+
+        const passIncluded = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/;
+        if (!this.password.match(passIncluded)) {
+          return (this.error =
+            "Min 8 char, at least; one low case, one up case, one num, and one special");
+        }
+
         const response = await axios.post("/users/reset", {
           password: this.password,
           password_confirm: this.passwordConfirm,
